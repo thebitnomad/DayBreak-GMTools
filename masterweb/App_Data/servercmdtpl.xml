@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfSServerCommandTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SServerCommandTemplate>
+    <Name>【活动】增加洗练条目数出现概率</Name>
+    <ScriptTemplate>GM:ModGlobalResetBatchExsitPercent({0},{1},{2} )</ScriptTemplate>
+    <Params>
+      <Name>装备品质</Name>
+      <Desc>填入2~5的数字，蓝=2，紫=3，橙=4，红=5</Desc>
+      <DefaultValue />
+    </Params>
+    <Params>
+      <Name>附加属性条目索引</Name>
+      <Desc>填入0~8，代表1~9条</Desc>
+      <DefaultValue />
+    </Params>
+    <Params>
+      <Name>附加属性条目出现概率的增加值</Name>
+      <Desc>输入0~1000的数字，加上原配置不可超过1000，具体细节见文档</Desc>
+      <DefaultValue />
+    </Params>
+    <Type>0</Type>
+  </SServerCommandTemplate>
+  <SServerCommandTemplate>
+    <Name>【公会】会长转移</Name>
+    <ScriptTemplate>GM:TransferLeagueLeader('{0}','{1}','{2}',4)</ScriptTemplate>
+    <Params>
+      <Name>公会guid</Name>
+      <Desc>公会guid，master公会信息中可查</Desc>
+      <DefaultValue />
+    </Params>
+    <Params>
+      <Name>老会长的guid</Name>
+      <Desc>公会信息里面可查，需要勾选显示该列</Desc>
+      <DefaultValue />
+    </Params>
+    <Params>
+      <Name>新会长的名字</Name>
+      <Desc>请在master里面查询，gmtools里面的不区分大小写</Desc>
+      <DefaultValue />
+    </Params>
+    <Type>0</Type>
+  </SServerCommandTemplate>
+  <SServerCommandTemplate>
+    <Name>【公会】设置公会等级</Name>
+    <ScriptTemplate>GM:SetLeagueLevel('{0}',{1})</ScriptTemplate>
+    <Params>
+      <Name>公会GUID</Name>
+      <Desc>master公会信息可查到</Desc>
+      <DefaultValue />
+    </Params>
+    <Params>
+      <Name>公会等级</Name>
+      <Desc>输入1~5的数字</Desc>
+      <DefaultValue />
+    </Params>
+    <Type>0</Type>
+  </SServerCommandTemplate>
+  <SServerCommandTemplate>
+    <Name>【公会】增加公会资金</Name>
+    <ScriptTemplate>GM:ModLeagueGold( '{0}', {1} )</ScriptTemplate>
+    <Params>
+      <Name>工会GUID</Name>
+      <Desc>可在master公会信息上查询</Desc>
+      <DefaultValue />
+    </Params>
+    <Params>
+      <Name>新增的公会资金</Name>
+      <Desc>0~2亿，注意不要超过公会资金上限</Desc>
+      <DefaultValue />
+    </Params>
+    <Type>0</Type>
+  </SServerCommandTemplate>
+  <SServerCommandTemplate>
+    <Name>【公会】设置公会资金（不是增加公会资金）</Name>
+    <ScriptTemplate>GM:SetLeagueGold('{0}',{1})</ScriptTemplate>
+    <Params>
+      <Name>公会GUID</Name>
+      <Desc>可在master中公会信息中查到</Desc>
+      <DefaultValue />
+    </Params>
+    <Params>
+      <Name>需要设定到的当前资金</Name>
+      <Desc>0~2亿，不要超过上限</Desc>
+      <DefaultValue />
+    </Params>
+    <Type>0</Type>
+  </SServerCommandTemplate>
+  <SServerCommandTemplate>
+    <Name>【公会战】清除战场报名和排名信息（在战场服打）</Name>
+    <ScriptTemplate>GM:ClearLeagueWarInfo()</ScriptTemplate>
+    <Type>0</Type>
+  </SServerCommandTemplate>
+  <SServerCommandTemplate>
+    <Name>【补偿】修复玩家关系</Name>
+    <ScriptTemplate>CFrdMgr:ChgAppellation( "{0}","{1}",{2} )</ScriptTemplate>
+    <Params>
+      <Name>玩家名字</Name>
+      <Desc>需要在master里查询名字，gmtools不区分大小写</Desc>
+      <DefaultValue />
+    </Params>
+    <Params>
+      <Name>玩家名字</Name>
+      <Desc>需要在master里查询名字，gmtools不区分大小写</Desc>
+      <DefaultValue />
+    </Params>
+    <Params>
+      <Name>关系参数</Name>
+      <Desc>输入0、1、4、5四个值中的一个，0表示普通好友，1为正常好友，4为未婚夫妻，5为正式夫妻</Desc>
+      <DefaultValue />
+    </Params>
+    <Type>0</Type>
+  </SServerCommandTemplate>
+  <SServerCommandTemplate>
+    <Name>【补偿】增量增加竞技场排名积分</Name>
+    <ScriptTemplate>CPlayerMgr:PlayerExc('{0}','Me:GetBattleMan( ):ModBttleScore({1})')</ScriptTemplate>
+    <Params>
+      <Name>玩家角色名</Name>
+      <Desc>需要在master里查询名字，gmtools不区分大小写</Desc>
+      <DefaultValue />
+    </Params>
+    <Params>
+      <Name>增量增加值</Name>
+      <Desc>0~2000的数字，注意结果不为负</Desc>
+      <DefaultValue />
+    </Params>
+    <Type>0</Type>
+  </SServerCommandTemplate>
+  <SServerCommandTemplate>
+    <Name>【公会】系统新建公会（需要及时修改公会宣言）</Name>
+    <ScriptTemplate>CPlayerMgr:PlayerExc('{0}',"Me:GetLeague():GMRspCrtLeague('{1}')")</ScriptTemplate>
+    <Params>
+      <Name>玩家角色名</Name>
+      <Desc>玩家需要大于20级，需要在master里查询名字，gmtools不区分大小写</Desc>
+      <DefaultValue />
+    </Params>
+    <Params>
+      <Name>公会名字</Name>
+      <Desc>须符合公会起名规范</Desc>
+      <DefaultValue />
+    </Params>
+    <Type>0</Type>
+  </SServerCommandTemplate>
+  <SServerCommandTemplate>
+    <Name>【工会战】开关公会战报名（在非战场服务器打）</Name>
+    <ScriptTemplate>GM:FuncSwitchEnable(3,{0})</ScriptTemplate>
+    <Params>
+      <Name>开关参数</Name>
+      <Desc>输入0或1,0=关，1=开</Desc>
+      <DefaultValue />
+    </Params>
+    <Type>0</Type>
+  </SServerCommandTemplate>
+  <SServerCommandTemplate>
+    <Name>【工会战】开关公会战报名（在战场服务器打）</Name>
+    <ScriptTemplate>GM:CrossFuncSwitchEnable(3,{0})</ScriptTemplate>
+    <Params>
+      <Name>开关参数</Name>
+      <Desc>输入0或1,0=关，1=开</Desc>
+      <DefaultValue />
+    </Params>
+    <Type>0</Type>
+  </SServerCommandTemplate>
+  <SServerCommandTemplate>
+    <Name>【副本】清除50传说本次数</Name>
+    <ScriptTemplate>CPlayerMgr:PlayerExc("{0}","Me:GetInstanceChoicer():DirChgEnterTimes(373,2,0)")</ScriptTemplate>
+    <Params>
+      <Name>玩家角色名</Name>
+      <Desc>需要在master里查询名字，gmtools不区分大小写</Desc>
+      <DefaultValue />
+    </Params>
+    <Type>0</Type>
+  </SServerCommandTemplate>
+  <SServerCommandTemplate>
+    <Name>【交易行】系统挂单（金币）</Name>
+    <ScriptTemplate>GM:SysSellMoney({0},{1},{2})</ScriptTemplate>
+    <Params>
+      <Name>售卖金币数量</Name>
+      <Desc>只可填  10000,100000,1000000,10000000 中的一个</Desc>
+      <DefaultValue />
+    </Params>
+    <Params>
+      <Name>售卖时间</Name>
+      <Desc>单位为秒，一般为43200（12小时）</Desc>
+      <DefaultValue />
+    </Params>
+    <Params>
+      <Name>钻石需求数量</Name>
+      <Desc>即钻石价格</Desc>
+      <DefaultValue />
+    </Params>
+    <Type>0</Type>
+  </SServerCommandTemplate>
+  <SServerCommandTemplate>
+    <Name>【交易行】系统挂单（钻石）</Name>
+    <ScriptTemplate>GM:SysSellDiamond({0},{1},{2})</ScriptTemplate>
+    <Params>
+      <Name>售卖钻石数量</Name>
+      <Desc>只可填  100,200,500,1000,1500,2000  中的一个</Desc>
+      <DefaultValue />
+    </Params>
+    <Params>
+      <Name>售卖时间</Name>
+      <Desc>单位秒，一般为43200,（12小时）</Desc>
+      <DefaultValue />
+    </Params>
+    <Params>
+      <Name>金币需求数量</Name>
+      <Desc>即金币钻石对应的金币价格</Desc>
+      <DefaultValue />
+    </Params>
+    <Type>0</Type>
+  </SServerCommandTemplate>
+  <SServerCommandTemplate>
+    <Name>【活动】更改某强化等级强化下限</Name>
+    <ScriptTemplate>GM:ChgGlobalUpEquipLvMinValEx({0},{1})</ScriptTemplate>
+    <Params>
+      <Name>强化等级</Name>
+      <Desc>填入1~20，代表强化1~20级</Desc>
+      <DefaultValue />
+    </Params>
+    <Params>
+      <Name>强化下限增量</Name>
+      <Desc>填入0~8，代表下限增加百分之几，比如1级原下限是2%，这里填2，则新的下限为4%（1级上限也为4%，则调整后玩家强化1级必然完美）</Desc>
+      <DefaultValue />
+    </Params>
+    <Type>0</Type>
+  </SServerCommandTemplate>
+  <SServerCommandTemplate>
+    <Name>【活动】更改洗练附加属性下限</Name>
+    <ScriptTemplate>GM:ChgGlobalResetBatchMinPercent({0})</ScriptTemplate>
+    <Params>
+      <Name>下限增量值</Name>
+      <Desc>填入0~34，代表洗练出的属性增加百分比，系统默认是66%，填入1即增加到67%，以此类推</Desc>
+      <DefaultValue />
+    </Params>
+    <Type>0</Type>
+  </SServerCommandTemplate>
+  <SServerCommandTemplate>
+    <Name>【补偿】按照公会战的名次修改公会积分的公会战奖励部分</Name>
+    <ScriptTemplate>CLeagueMgr:WarRewardLeague('{0}',{1},{2},0,0)</ScriptTemplate>
+    <Params>
+      <Name>公会名称</Name>
+      <Desc>需要在master里查询公会名字和公会当前积分，最终奖励=计算参数1*计算参数2*4000</Desc>
+      <DefaultValue />
+    </Params>
+    <Params>
+      <Name>公会战第几组</Name>
+      <Desc>填入0~7，代表甲~辛组，计算参数分别为：1,0.95,0.9,0.85,0.8,0.75,0.7,0.65</Desc>
+      <DefaultValue />
+    </Params>
+    <Params>
+      <Name>该组第几名</Name>
+      <Desc>填入0~7，代表1~8名，计算参数分别为1,0.75,0.56,0.43,0.33,0.26,0.2,0.15</Desc>
+      <DefaultValue />
+    </Params>
+    <Type>0</Type>
+  </SServerCommandTemplate>
+  <SServerCommandTemplate>
+    <Name>【副本】清除25传说本次数</Name>
+    <ScriptTemplate>CPlayerMgr:PlayerExc("{0}","Me:GetInstanceChoicer():DirChgEnterTimes(225,2,0)")</ScriptTemplate>
+    <Params>
+      <Name>玩家角色名</Name>
+      <Desc />
+      <DefaultValue />
+    </Params>
+    <Type>0</Type>
+  </SServerCommandTemplate>
+  <SServerCommandTemplate>
+    <Name>【副本】清除35传说本次数</Name>
+    <ScriptTemplate>CPlayerMgr:PlayerExc("{0}","Me:GetInstanceChoicer():DirChgEnterTimes(330,2,0)")</ScriptTemplate>
+    <Params>
+      <Name>玩家角色名</Name>
+      <Desc />
+      <DefaultValue />
+    </Params>
+    <Type>0</Type>
+  </SServerCommandTemplate>
+  <SServerCommandTemplate>
+    <Name>【争霸赛】开启争霸赛【在战场服务器打】</Name>
+    <ScriptTemplate>GM:GMOpenBattleRace({0},{1})</ScriptTemplate>
+    <Params>
+      <Name>开启规则</Name>
+      <Desc>1=立即开启，0=到下周周一开启</Desc>
+      <DefaultValue />
+    </Params>
+    <Params>
+      <Name>是否开启前清空资格赛赛数据（雕像，积分，决赛数据不清除）</Name>
+      <Desc>1=开启后清空数据，0=不清空；每个新服默认该功能关闭；默认一轮争霸赛结束后自动关闭</Desc>
+      <DefaultValue />
+    </Params>
+    <Type>0</Type>
+  </SServerCommandTemplate>
+  <SServerCommandTemplate>
+    <Name>【争霸赛】强制设置玩家抽签结果（在战场服打）</Name>
+    <ScriptTemplate>CBRMgr:GMSetDrawLostResult('{0}',{1})</ScriptTemplate>
+    <Params>
+      <Name>玩家UUID</Name>
+      <Desc>注：输入玩家UUID必须是前八名的玩家；输入后与目标位置的玩家调换位置；只有在第二周周三23:00~第二  周周四12:00之前打，之后玩家手动抽签。</Desc>
+      <DefaultValue />
+    </Params>
+    <Params>
+      <Name>位置ID</Name>
+      <Desc>即玩家的抽签位置：1~8</Desc>
+      <DefaultValue />
+    </Params>
+    <Type>0</Type>
+  </SServerCommandTemplate>
+  <SServerCommandTemplate>
+    <Name>【争霸赛】查看当前争霸赛抽签结果</Name>
+    <ScriptTemplate>CBRMgr:GMOutputBRAgainstData()</ScriptTemplate>
+    <Type>0</Type>
+  </SServerCommandTemplate>
+  <SServerCommandTemplate>
+    <Name>【存盘功能】功能开关</Name>
+    <ScriptTemplate>GM:FuncSwitchEnable({0},{1})</ScriptTemplate>
+    <Params>
+      <Name>功能ID</Name>
+      <Desc>请查询相关文档</Desc>
+      <DefaultValue />
+    </Params>
+    <Params>
+      <Name>开关</Name>
+      <Desc>0=关，1=开，个别指令参数不同，请确认文档</Desc>
+      <DefaultValue />
+    </Params>
+    <Type>0</Type>
+  </SServerCommandTemplate>
+  <SServerCommandTemplate>
+    <Name>【存盘功能】查看选定服务器功能开关设置</Name>
+    <ScriptTemplate>SCallWorld(1,"SSDo",'GM:OutputFuncSwitchEnable()')</ScriptTemplate>
+    <Type>0</Type>
+  </SServerCommandTemplate>
+  <SServerCommandTemplate>
+    <Name>【商城】设置上下架时间</Name>
+    <ScriptTemplate>UPDATE `ibshop` SET `ExpireTime`='{2}',  `ComeoutTime`='{1}'  WHERE `Id`={0};</ScriptTemplate>
+    <Params>
+      <Name>商品ID</Name>
+      <Desc>请查询“实时数据”中的商品ID，批量修改可使用英文逗号隔开多个ID</Desc>
+      <DefaultValue />
+    </Params>
+    <Params>
+      <Name>上架时间</Name>
+      <Desc>请使用与默认时间格式相同的时间格式填写，设定好后，需要再使用上架功能才有效</Desc>
+      <DefaultValue>2012-08-6 13:01:00</DefaultValue>
+    </Params>
+    <Params>
+      <Name>下架时间</Name>
+      <Desc>请使用与默认时间格式相同的时间格式填写，设定好后，需要再使用上架功能才有效</Desc>
+      <DefaultValue>2012-08-6 13:01:00</DefaultValue>
+    </Params>
+    <Type>1</Type>
+  </SServerCommandTemplate>
+  <SServerCommandTemplate>
+    <Name>【商城】设置商品价格</Name>
+    <ScriptTemplate>update ibshop set Price = '{1}' where Id IN ({0});</ScriptTemplate>
+    <Params>
+      <Name>商品ID</Name>
+      <Desc>请查询“实时数据”中的商品ID，批量修改可使用英文逗号隔开多个ID</Desc>
+      <DefaultValue />
+    </Params>
+    <Params>
+      <Name>商品价格</Name>
+      <Desc>单位为钻</Desc>
+      <DefaultValue />
+    </Params>
+    <Type>1</Type>
+  </SServerCommandTemplate>
+  <SServerCommandTemplate>
+    <Name>【商城】设置商品标签</Name>
+    <ScriptTemplate>update ibshop set Tag = '{1}' where Id IN ({0});</ScriptTemplate>
+    <Params>
+      <Name>商品ID</Name>
+      <Desc>请查询“实时数据”中的商品ID，批量修改可使用英文逗号隔开多个ID</Desc>
+      <DefaultValue />
+    </Params>
+    <Params>
+      <Name>标签ID</Name>
+      <Desc>无=0 ,最新=1 ,最热=2 ,免费领取=3 ,1折=4 ,2折=5 ,3折=6 ,4折=7 ,5折=8 ,6折=9 ,7折=10 ,8折=11 ,9折=12,未上架商品修改后需要上架才起效</Desc>
+      <DefaultValue />
+    </Params>
+    <Type>1</Type>
+  </SServerCommandTemplate>
+  <SServerCommandTemplate>
+    <Name>【商城】修改商品分页</Name>
+    <ScriptTemplate>update ibshop set ShopType = '{1}' where Id IN ({0});</ScriptTemplate>
+    <Params>
+      <Name>商品ID</Name>
+      <Desc>请查询“实时数据”中的商品ID，批量修改可使用英文逗号隔开多个ID</Desc>
+      <DefaultValue />
+    </Params>
+    <Params>
+      <Name>分页ID</Name>
+      <Desc>装备=1 ,守护=2 ,坐骑=3 ,药品=4 ,宝物=5 ,装扮=6 ,宝石=7 ,会员=11 ,热卖=12 ,礼包=13 ,限购=14</Desc>
+      <DefaultValue />
+    </Params>
+    <Type>1</Type>
+  </SServerCommandTemplate>
+  <SServerCommandTemplate>
+    <Name>【商城】修改限购类型和限购数量</Name>
+    <ScriptTemplate>update ibshop set LimitType = '{1}',LimitCnt = '{2}' where Id IN ({0});</ScriptTemplate>
+    <Params>
+      <Name>商品ID</Name>
+      <Desc>请查询“实时数据”中的商品ID，批量修改可使用英文逗号隔开多个ID</Desc>
+      <DefaultValue />
+    </Params>
+    <Params>
+      <Name>限购类型</Name>
+      <Desc>不限购=0 ,普通限购=1,普通限购指限制每人购买的总数量；按天限购=2 ,按天限购指限制每人每天购买的总数量;按周限购=3,按周限购指限制每人每周购买的总数量;</Desc>
+      <DefaultValue />
+    </Params>
+    <Params>
+      <Name>限购数量</Name>
+      <Desc>同一个ID，已设置限购且上架的物品，设定后不会对服务器内的存货数量产生影响</Desc>
+      <DefaultValue />
+    </Params>
+    <Type>1</Type>
+  </SServerCommandTemplate>
+  <SServerCommandTemplate>
+    <Name>【商城】商品是否上推荐标签页</Name>
+    <ScriptTemplate>update ibshop set Recommend = '{1}' where Id IN ({0});</ScriptTemplate>
+    <Params>
+      <Name>商品ID</Name>
+      <Desc>请查询“实时数据”中的商品ID，批量修改可使用英文逗号隔开多个ID</Desc>
+      <DefaultValue />
+    </Params>
+    <Params>
+      <Name>是否推荐</Name>
+      <Desc>0=不推荐，1=推荐</Desc>
+      <DefaultValue />
+    </Params>
+    <Type>1</Type>
+  </SServerCommandTemplate>
+  <SServerCommandTemplate>
+    <Name>【商城】是否上架</Name>
+    <ScriptTemplate>update ibshop set OnSale = '{1}' where Id IN ({0});</ScriptTemplate>
+    <Params>
+      <Name>商品ID</Name>
+      <Desc>请查询“实时数据”中的商品ID，批量修改可使用英文逗号隔开多个ID</Desc>
+      <DefaultValue />
+    </Params>
+    <Params>
+      <Name>是否上架</Name>
+      <Desc>0=不上架，1=上架</Desc>
+      <DefaultValue />
+    </Params>
+    <Type>1</Type>
+  </SServerCommandTemplate>
+</ArrayOfSServerCommandTemplate>

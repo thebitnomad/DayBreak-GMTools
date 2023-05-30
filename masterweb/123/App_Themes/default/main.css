@@ -1,0 +1,161 @@
+﻿body { padding: 0px; margin: 0px; font-family: 宋体; font-size: 12px; color: #00595A; background-color: #FFFFFF; }
+
+/* ext font style pack */
+.ext-el-mask-msg div,.loading-indicator,.x-tab-strip span.x-tab-strip-text,.x-form-invalid-msg,.x-small-editor .x-form-field,.x-fieldset legend,.x-btn,.x-btn button,.x-toolbar td,.x-toolbar span,.x-toolbar input,.x-toolbar div,.x-toolbar select,.x-toolbar label,.x-grid3-hd-row td,.x-grid3-row td,.x-grid3-summary-row td,.x-grid3-topbar,.x-grid3-bottombar,.x-grid-group-hd div,.x-grid-empty,.x-dd-drag-ghost,.x-tree-node,.x-date-middle,.x-date-left,.x-date-right,.x-date-mp td,.x-date-mp-btns button,.x-tip .x-tip-mc,.x-tip .x-tip-header-text,.x-tip .x-tip-body,.x-menu-list-item,#x-debug-browser .x-tree .x-tree-node a span,.x-combo-list-hd,.x-combo-list-small .x-combo-list-item,.x-panel-header,.x-panel-tl .x-panel-header,.x-panel-mc,.x-window-tl .x-window-header,.x-window-mc,.x-progress-text,.x-date-inner th,.x-date-mmenu .x-menu-item,.x-grid-group-hd div.x-grid-group-title { font-family: 宋体; font-size:12px; }
+/* datefield display problem */
+/*.x-date-inner a { font-size:12px; font-family: 宋体; } */
+/* webkit grid font */
+.ext-webkit .x-small-editor .x-form-text{ padding:1px; font-size:12px; font-family: 宋体; }
+
+.logo { margin-left: 3px; margin-top:3px; width:66px; height:28px; float:left; color: #FFFFFF; font: italic bold 25px Arial; /* background-image: url('../../images/logo.png'); background-repeat: no-repeat; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src="../images/logo.png"); _background-image:none; */ }
+.motto { background-color: transparent; border:none; width:300px; height:30px; line-height:30px; float:left; margin-top:4px; margin-left:20px; font-size: 20px; font-family: '楷体_GB2312'; color: #FFFFFF; }
+
+a.topbaruserinfo, a.topbaruserinfo:link, a.topbaruserinfo:visited { text-decoration:none !important; color: #FFF; }
+a.topbaruserinfo:hover { color:#FC923A; }
+
+/* combo */
+.list-item { font-size: 12px; padding:3px 10px 3px 10px; border:1px solid #fff; border-bottom:1px solid #eeeeee; white-space:normal; color:#555; }
+.list-item h3 { display:block; font:inherit; color:#222; padding-top:0px; padding-bottom:5px; font-weight:bold; }
+
+/* machinemgr */
+.mcon     { float:left; width:14px; height:14px; background-image: url('../../images/green.png')!important; background-repeat: no-repeat; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src="../images/green.png"); _background-image:none; }
+.mdiscon  { float:left; width:14px; height:14px; background-image: url('../../images/gray.png')!important;  background-repeat: no-repeat; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src="../images/gray.png");  _background-image:none; }
+
+/* svrmgr */
+.sunknow
+{ float:left; width:14px; height:14px; background-image: url('../../images/gray.png')!important;  background-repeat: no-repeat; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src="../images/gray.png");   _background-image:none; }
+
+.snormal
+{ float:left; width:14px; height:14px; background-image: url('../../images/green.png')!important; background-repeat: no-repeat; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src="../images/green.png");  _background-image:none; }
+
+.salert
+{ float:left; width:14px; height:14px; background-image: url('../../images/yellow.png')!important;background-repeat: no-repeat; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src="../images/yellow.png"); _background-image:none; }
+
+.sstop
+{ float:left; width:14px; height:14px; background-image: url('../../images/red.png')!important;   background-repeat: no-repeat; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src="../images/red.png");    _background-image:none; }
+
+.punknown, .netunknown, .payunknown, .dbunknown, .nsunknown, .warunknown
+{ text-align: center; background-color: #CCCCCC; border-right: solid 1px #FFFFFF; color:#000; padding-top:1px; height:23px !important; }
+
+.prunning, .netcon, .paynormal, .dbnormal, .updatesvrnormal, .nsnormal, .warcon, .waryes
+{ text-align: center; background-color: #00CC00; border-right: solid 1px #FFFFFF; color:#000; padding-top:1px; height:23px !important; }
+
+.pstop, .netdis, .payerr, .dberr, .updatesvrerr, .nserr, .warno
+{ text-align: center; background-color: #CC0000; border-right: solid 1px #FFFFFF; color:#cecece; padding-top:1px; height:23px !important; }
+
+.pstarting, .pstopping, .ptimeout, .pdeadloop, .pcrash, .pdeadloopkill, .wardis
+{ text-align: center; background-color: #CCCC00; border-right: solid 1px #FFFFFF; color:#000; padding-top:1px; height:23px !important; }
+
+/* tip */
+.tip
+{ width:300px; line-height:16px; position: absolute; padding: 6px 5px; color: #FFF; background-color: #000000; border: outset 2px #CCCCCC; filter: alpha(opacity=85); opacity: 0.85; top: 0px !important; left: 0px !important; }
+
+.tip .space
+{ line-height:10px; }
+
+.tip .center
+{ text-align:center; width:100%; }
+
+.tip .header
+{ font-weight:bold; }
+
+.tip .itemhead
+{ width:90px; display:inline-block; }
+
+.tip .tipgreen
+{ color: #00FF00; }
+
+.tip .tipred
+{ color: #FF0000; }
+
+.tip .tipyellow
+{ color: #FFFF00; }
+
+ tip .texthead 
+{ width:150px; display: inline-block;}
+
+
+/* Load */
+.loadhigh
+{ background-color: #CC0000; border-right: solid 1px #FFFFFF; }
+
+.loadmid
+{ background-color: #CCCC00; border-right: solid 1px #FFFFFF; }
+
+.loadlow
+{ background-color: #00CC00; border-right: solid 1px #FFFFFF; }
+
+.loadna
+{ background-color: #CCCCCC; border-right: solid 1px #FFFFFF; }
+
+
+/* bar load */
+.bllow
+{ color: #FFFFFF; background-color: Green; }
+
+.blmid
+{ color: #FFFFFF; background-color: #FF6600; }
+
+.blhigh
+{ color: #FFFFFF; background-color: #FF0000; }
+
+
+/* marker */
+/*.mark
+{ cursor: pointer; }
+*/
+.star
+{ width:16px; height:16px; float: left; background-image: url('../../images/marker-star.png') !important; background-repeat: no-repeat; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src="../images/marker-star.png"); _background-image: none; }
+
+.flag
+{ width:16px; height:16px; float: left; background-image: url('../../images/marker-flag.png') !important; background-repeat: no-repeat; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src="../images/marker-flag.png"); _background-image: none; }
+
+
+/* svr overview */
+.sounknown
+{ text-align: center; color: #454d58 !important; background-color: #CCCCCC; border: solid 1px #858897 !important; color:#000; padding-top:1px; height:23px !important; line-height:23px; }
+
+.sorunning
+{ text-align: center; color: #454d58 !important; background-color: #00CC00; border: solid 1px #858897 !important; color:#000; padding-top:1px; height:23px !important; line-height:23px; }
+
+.sostop
+{ text-align: center; color: #cecece !important; background-color: #CC0000; border: solid 1px #76787e !important; color:#000; padding-top:1px; height:23px !important; line-height:23px; }
+
+.sostarting, .sostopping, .sotimeout, .sodeadloop, .socrash, .sodeadloopkill
+{ text-align: center; color: #454d58 !important; background-color: #CCCC00; border: solid 1px #76787e !important; color:#000; padding-top:1px; height:23px !important; line-height:23px; }
+
+
+/* item color */
+.white
+{ color:black; }
+
+.green
+{ color:#4aa408; }
+
+.blue
+{ color:#0167ff; }
+
+.purple
+{ color:#a302c7; font-weight:bold; }
+
+.golden
+{ color:#FFA45A; font-weight:bold; }
+
+.red
+{ color:#ff3d66; font-weight:bold; }
+
+.random
+{ color:black; }
+
+
+/* file */
+.folder { float:left; width:24px !important; height:24px !important; background-image: url('../../images/folder.png')!important; background-repeat: no-repeat; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src="../images/folder.png"); _background-image:none; }
+.file { float:left; width:24px !important; height:24px !important; background-image: url('../../images/file.png')!important; background-repeat: no-repeat; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src="../images/file.png"); _background-image:none; }
+
+
+/* update */
+.ftperr { font-weight:bold; color:Red; }
+
+/* account */
+.accfail { font-weight:bold; color:Red; }
+.accsuc { font-weight:bold; color:Green; }

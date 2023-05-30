@@ -1,0 +1,6 @@
+#/bin/bash
+#add by yaoyao
+#start game
+
+cd C#P1
+./C#P2 -d

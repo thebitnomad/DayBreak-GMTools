@@ -1,0 +1,7 @@
+#/bin/bash
+#checkgame
+
+#pid=C#P1
+#ps -p $pid | grep $pid | wc -l
+
+ps aux | awk '{ print $2 }' | grep -c -e "^C#P1$"

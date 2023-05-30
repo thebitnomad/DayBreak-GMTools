@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" enableLocalization="true" >
+	<siteMapNode title="$resources: StringDef, HomePage, HomePage">
+		<siteMapNode title="$resources: StringDef, OperationsAndMaintenance, OperationsAndMaintenance">
+			<!--<siteMapNode url="~/op/servermonitor.aspx" title="$resources: StringDef, GameServerMonitor, GameServerMonitor" />-->
+			<siteMapNode url="~/op/platformmgr.aspx" title="$resources: StringDef, PlatformManage, PlatformManage" priObjPath="masterweb/operation/platformmgr" />
+			<siteMapNode url="~/op/svrmgr.aspx" title="$resources: StringDef, GameServerManager, GameServerManager" priObjPath="masterweb/operation/svrmgr" />
+			<siteMapNode url="~/op/machinemgr.aspx" title="$resources: StringDef, MachineManagement, MachineManagement" priObjPath="masterweb/operation/machinemgr" />
+			<siteMapNode url="~/op/svroverview.aspx" title="$resources: StringDef, GameGroupOverview, GameGroupOverview" priObjPath="masterweb/operation/svroverview" />
+			<siteMapNode url="~/op/svrctrl.aspx" title="$resources: StringDef, SvrControl, SvrControl" priObjPath="masterweb/operation/svrctrl" />
+			<siteMapNode url="~/op/cltupdate.aspx" title="$resources: StringDef, ClientUpdate, ClientUpdate" priObjPath="masterweb/operation/cltupdate" />
+			<siteMapNode url="~/op/svrcombine.aspx" title="$resources: StringDef, SvrCombine, SvrCombine" priObjPath="masterweb/operation/svrcombine" />
+			<siteMapNode url="~/automation/strategy.aspx" title="$resources: StringDef, Strategy, Strategy" priObjPath="masterweb/automation/strategy" />
+		</siteMapNode>
+		<siteMapNode title="$resources: StringDef, CustomService, CustomService">
+			<siteMapNode url="~/gm/account.aspx" title="$resources: StringDef, AccountInfo, AccountInfo" priObjPath="masterweb/gm/accinfo" />
+			<siteMapNode url="~/gm/role.aspx" title="$resources: StringDef, RoleInfo, RoleInfo" priObjPath="masterweb/gm/roleinfo" />
+			<siteMapNode url="~/gm/msgboard.aspx" title="$resources: StringDef, MessageBoard, MessageBoard" priObjPath="masterweb/gm/msgboard" />
+			<siteMapNode url="~/gm/announce.aspx" title="$resources: StringDef, Announcement, Announcement" priObjPath="masterweb/gm/announce" />
+			<siteMapNode url="~/gm/ib.aspx" title="$resources: StringDef, IBRecord, IBRecord" priObjPath="masterweb/gm/ib" />
+			<siteMapNode url="~/gm/chat.aspx" title="$resources: StringDef, ChatMonitor, ChatMonitor" priObjPath="masterweb/gm/chat" />
+			<siteMapNode url="~/gm/society.aspx" title="$resources: StringDef, SocietyInfo, SocietyInfo" priObjPath="masterweb/gm/roleinfo" />
+			<siteMapNode url="~/gm/gmop.aspx" title="$resources: StringDef, GMOpLog, GMOpLog" priObjPath="masterweb/gm/gmop" />
+			<siteMapNode url="~/gm/currdata.aspx" title="$resources: StringDef, CurrData, CurrData" priObjPath="masterweb/gm/currdata" />
+			<siteMapNode url="~/gm/gamelog.aspx" title="$resources: StringDef, GameLog, GameLog" priObjPath="masterweb/gm/gamelog" />
+			<siteMapNode url="~/gm/vip.aspx" title="$resources: StringDef, VIP, VIP" priObjPath="masterweb/gm/vip" />
+		</siteMapNode>
+		<siteMapNode title="$resources: StringDef, GameData, GameData">
+			<!--<siteMapNode url="~/data/playercount.aspx" title="$resources: StringDef, PlayerCount, PlayerCount" priObjPath="masterweb/data/playercount" />-->
+			<siteMapNode url="~/data/rank.aspx" title="$resources: StringDef, RankInfo, RankInfo" priObjPath="masterweb/data/rank" />
+			<siteMapNode url="~/data/moneystat.aspx" title="$resources: StringDef, MoneyInfo, MoneyInfo" priObjPath="masterweb/data/moneystat" />
+			<siteMapNode url="~/data/datactrl.aspx" title="$resources: StringDef, DataCtrl, DataCtrl" priObjPath="masterweb/data/datactrl" />
+			<siteMapNode url="~/automation/schetask.aspx" title="$resources: StringDef, ScheduledTask, ScheduledTask" priObjPath="masterweb/automation/schetask" />
+		</siteMapNode>
+		<!--<siteMapNode title="$resources: StringDef, Automation, Automation">
+			<siteMapNode url="~/automation/schetask.aspx" title="$resources: StringDef, ScheduledTask, ScheduledTask" priObjPath="masterweb/automation/schetask" />
+			<siteMapNode url="~/automation/strategy.aspx" title="$resources: StringDef, Strategy, Strategy" priObjPath="masterweb/automation/strategy" />
+		</siteMapNode>-->
+		<siteMapNode title="$resources: StringDef, UserManagement, UserManagement">
+			<siteMapNode url="~/security/userman.aspx" title="$resources: StringDef, UserManagement, UserManagement" priObjPath="masterweb/security/userman" />
+			<siteMapNode url="~/security/groupman.aspx" title="$resources: StringDef, GroupManagement, GroupManagement" priObjPath="masterweb/security/groupman" />
+			<siteMapNode url="~/security/privilege.aspx" title="$resources: StringDef, PrivilegeManagement, PrivilegeManagement" priObjPath="masterweb/security/privilege" />
+		</siteMapNode>
+	</siteMapNode>
+</siteMap>

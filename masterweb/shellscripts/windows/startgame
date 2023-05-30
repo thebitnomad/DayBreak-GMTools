@@ -1,0 +1,12 @@
+'StartGame
+
+Dim m_SvrWorkingDir, m_SvrAppName
+m_SvrWorkingDir	= "C#P1"
+m_SvrAppName	= "C#P2"
+
+Dim objWshShell
+Set objWshShell = WScript.CreateObject( "WScript.Shell" )
+objWshShell.CurrentDirectory = m_SvrWorkingDir
+
+Set objExec = objWshShell.Exec( m_SvrAppName & " -d" )
+WScript.Echo objExec.StdOut.ReadAll( )

@@ -1,0 +1,20 @@
+#/bin/bash
+#add by yaoyao
+#threadbt
+
+path=C#P1
+pid=C#P2
+exename=C#P2
+btfname=C#P3
+tId=C#P4
+
+cd $path
+
+echo thread $tId > $btfname
+echo bt > $btfname
+echo =================================
+echo thread $tId
+gdb -batch $exename $pid -x $btfname
+echo
+
+rm -rf $btfname

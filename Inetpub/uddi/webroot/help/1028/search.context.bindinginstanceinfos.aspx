@@ -1,0 +1,32 @@
+
+
+<%@ Page %> <%@ Register TagPrefix='uddi' Namespace='UDDI.Web' Assembly='uddi.web' %>
+<html>
+	<HEAD>
+		<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=Big5">
+		<META HTTP-EQUIV="MSThemeCompatible" CONTENT="Yes">
+		<META NAME="MS.LOCALE" CONTENT="ZH-TW">
+		<!-- #include file = "search.header.htm" -->
+	</head>
+	<body marginwidth="0" marginheight="0" LEFTMARGIN="0" TOPMARGIN="0" rightmargin="0" ONLOAD="BringToFront()">
+		<!-- #include file = "search.heading.htm" -->
+		<table class="content" width="100%" cellpadding="8">
+			<tr>
+				<td>
+					<H1><img src="..\..\images\binding.gif" height="16" width="16" alt="連結"> 連結 - <img src="..\..\images\instance.gif" heigh="16" width="16" alt="例項資訊"> 例項資訊</H1>
+					使用 [例項資訊] 索引標籤來檢視與服務相關的例項資訊。
+					<ul>
+					<li>
+						<b>例項資訊：</b>列出與此連結相關的例項資訊。
+					</ul>										
+					<p>
+					<H3>更多資訊</H3>
+					<!-- #include file = "glossary.instanceinfo.htm" -->
+				</td>
+			</tr>
+		</table>
+		<!-- #include file = "search.footer.htm" -->
+	</body>
+</html>
+
+ 

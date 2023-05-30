@@ -1,0 +1,119 @@
+﻿/*@@
+
+	Copyright (c) Saturn Team. All rights reserved. 
+
+	Created_datetime : 2011-05-23 19:12:10
+
+	File Name :	machinelist.ascx.cs
+
+	Author : yaoyao
+
+	Description :
+
+	Change List :
+
+		1.create file
+
+@@*/
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Ext.Net;
+using Saturn.Tools;
+using Saturn.Tools.Monitor;
+
+public partial class common_machinelist : System.Web.UI.UserControl
+{
+	public string Title
+	{
+		get { return this.GridPanelMachine.Title; }
+		set { this.GridPanelMachine.Title = value; }
+	}
+
+	public bool Border
+	{
+		get { return this.GridPanelMachine.Border; }
+		set { this.GridPanelMachine.Border = value; }
+	}
+
+	public Unit Height
+	{
+		get { return this.GridPanelMachine.Height; }
+		set { this.GridPanelMachine.Height = value; }
+	}
+
+	public int GameId
+	{
+		get
+		{
+			if( ViewState["GameId"] != null )
+				return ( int )ViewState["GameId"];
+			else
+				return 0;
+		}
+
+		set
+		{
+			ViewState["GameId"] = value;
+		}
+	}
+
+	protected void Page_Load( object sender, EventArgs e )
+	{
+		if( !X.IsAjaxRequest )
+		{
+			if( !IsPostBack )
+			{
+			}
+		}
+	}
+
+	protected void MachineRefresh( object sender, StoreRefreshDataEventArgs e )
+	{
+		try
+		{
+			int start = e.Start;
+			int limit = e.Limit;
+
+			int gameId = this.GameId;
+
+			List<object> machineData = new List<object>( );
+			SMachine[] machines = SMonitor.TheInstance.MachineManager.Machines.Where( group => group.GameId == gameId ).ToArray( );
+			foreach( SMachine machine in machines )
+			{
+				string groupName = string.Empty;
+				if( machine.GroupId != 0 )
+				{
+					SMachineGroup group = SMonitor.TheInstance.MachineManager.GetMachineGroup( machine.GroupId );
+					if( group != null )
+						groupName = group.Name;
+				}
+
+				machineData.Add( new
+				{
+					Id			= machine.Id,
+					Name		= machine.Name,
+					IpAddress	= machine.IpAddress,
+					MacAddress	= machine.MacAddress,
+					OSType		= ( int )machine.OSType,
+					Comment		= machine.Comment,
+					Group		= groupName
+				} );
+			}
+
+			this.StoreMachine.DataSource = machineData;
+			this.StoreMachine.DataBind( );
+
+			e.Total = machines.Length;
+		}
+		catch( Exception ex )
+		{
+			SUtil.OutputDebugLog( ex.ToString( ) );
+			SMonitorUtil.DebugLog( ex.ToString( ) );
+		}
+	}
+}

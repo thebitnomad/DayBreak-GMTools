@@ -1,0 +1,73 @@
+#/bin/bash
+#add by zuolizhi
+#update
+
+#P1 - pakdir
+#P2 - pakname
+#P3 - svrdir
+
+tmpdir=server_`date +%N`
+
+if cd C#P1 > /dev/null 2>&1; then
+ $1
+else
+ echo fail 0
+ exit 0
+fi
+
+#if rm -rf $tmpdir > /dev/null 2>&1 ;then
+# $1
+#else
+# echo fail 1
+# exit 0
+#fi
+
+if mkdir $tmpdir > /dev/null 2>&1 ;then
+ $1
+else
+ echo fail 2
+ rm -rf $tmpdir > /dev/null
+ exit 0
+fi
+
+if tar -xzf C#P2 -C $tmpdir > /dev/null 2>&1 ;then
+ $1
+else
+ echo fail 3
+ rm -rf $tmpdir > /dev/null
+ exit 0
+fi
+
+cd $tmpdir
+if [ -r rmlist.txt ];then
+tr -s ["\r\n"] "\n" < rmlist.txt > tmplist.txt
+tr -s ["\n"] < tmplist.txt > rmlist.txt
+rm -rf tmplist.txt
+while read line
+do
+if [ "$line" != "" ]; then
+rm -rf C#P3/$tmpdir/$line
+fi
+done < rmlist.txt
+rm -rf rmlist.txt
+fi
+cd ..
+
+if [ ! -d "C#P3" ]; then
+mkdir C#P3
+fi
+
+if cp -rf --reply=yes $tmpdir/* C#P3 > /dev/null 2>&1 ;then
+ $1
+else
+ echo fail 4
+ rm -rf $tmpdir > /dev/null
+ exit 0
+fi
+
+if rm -rf $tmpdir > /dev/null 2>&1 ; then
+ $1
+else
+ echo fail 5
+ exit 0
+fi

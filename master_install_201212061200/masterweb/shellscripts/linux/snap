@@ -1,0 +1,107 @@
+#/bin/bash
+#add by yaoyao
+#snap
+
+path=C#P1
+pid=C#P2
+exename=C#P3
+btfname=C#P4
+outfile=C#P5
+
+cd $path
+
+echo thread 1 >> $btfname
+echo bt >> $btfname
+echo thread 2 >> $btfname
+echo bt >> $btfname
+echo thread 3 >> $btfname
+echo bt >> $btfname
+echo thread 4 >> $btfname
+echo bt >> $btfname
+echo thread 5 >> $btfname
+echo bt >> $btfname
+echo thread 6 >> $btfname
+echo bt >> $btfname
+echo thread 7 >> $btfname
+echo bt >> $btfname
+echo thread 8 >> $btfname
+echo bt >> $btfname
+echo thread 9 >> $btfname
+echo bt >> $btfname
+echo thread 10 >> $btfname
+echo bt >> $btfname
+echo thread 11 >> $btfname
+echo bt >> $btfname
+echo thread 12 >> $btfname
+echo bt >> $btfname
+echo thread 13 >> $btfname
+echo bt >> $btfname
+echo thread 14 >> $btfname
+echo bt >> $btfname
+echo thread 15 >> $btfname
+echo bt >> $btfname
+echo thread 16 >> $btfname
+echo bt >> $btfname
+echo thread 17 >> $btfname
+echo bt >> $btfname
+echo thread 18 >> $btfname
+echo bt >> $btfname
+echo thread 19 >> $btfname
+echo bt >> $btfname
+echo thread 20 >> $btfname
+echo bt >> $btfname
+echo thread 21 >> $btfname
+echo bt >> $btfname
+echo thread 22 >> $btfname
+echo bt >> $btfname
+echo thread 23 >> $btfname
+echo bt >> $btfname
+echo thread 24 >> $btfname
+echo bt >> $btfname
+echo thread 25 >> $btfname
+echo bt >> $btfname
+echo thread 26 >> $btfname
+echo bt >> $btfname
+echo thread 27 >> $btfname
+echo bt >> $btfname
+echo thread 28 >> $btfname
+echo bt >> $btfname
+echo thread 29 >> $btfname
+echo bt >> $btfname
+echo thread 30 >> $btfname
+echo bt >> $btfname
+echo thread 31 >> $btfname
+echo bt >> $btfname
+echo thread 32 >> $btfname
+echo bt >> $btfname
+echo thread 33 >> $btfname
+echo bt >> $btfname
+echo thread 34 >> $btfname
+echo bt >> $btfname
+echo thread 35 >> $btfname
+echo bt >> $btfname
+echo thread 36 >> $btfname
+echo bt >> $btfname
+echo thread 37 >> $btfname
+echo bt >> $btfname
+echo thread 38 >> $btfname
+echo bt >> $btfname
+echo thread 39 >> $btfname
+echo bt >> $btfname
+echo thread 40 >> $btfname
+echo bt >> $btfname
+echo thread 41 >> $btfname
+echo bt >> $btfname
+echo thread 42 >> $btfname
+echo bt >> $btfname
+echo thread 43 >> $btfname
+echo bt >> $btfname
+
+
+if [ -z $outfile ]; then
+  gdb -batch $exename $pid -x $btfname
+else
+  gdb -batch $exename $pid -x $btfname | tee $outfile
+fi
+
+rm -rf $btfname

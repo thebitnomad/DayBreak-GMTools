@@ -1,0 +1,96 @@
+#/bin/sh
+#create by zuolizhi
+
+DBNAME=C#P1
+DBUSER=C#P2
+DBPWD=C#P3
+BKPATH=C#P4
+BKTYPE=C#P5
+DBHOST=C#P6
+
+CURPWD=`pwd`
+mkdir -p $BKPATH
+cd $BKPATH
+
+if [ $BKTYPE -eq 0  ]; then
+  BKFILENAME=DAYBREAKDB_`echo $DBNAME`_$(date +%y_%m_%d)_BK.tar.gz
+  SQLFILENAME=DAYBREAKDB_`echo $DBNAME`_$(date +%y_%m_%d).sql
+elif [ $BKTYPE -eq 1  ]; then
+  BKFILENAME=DAYBREAKDBALL_`echo $DBNAME`_$(date +%y_%m_%d)_BK.tar.gz
+  SQLFILENAME=DAYBREAKDBALL_`echo $DBNAME`_$(date +%y_%m_%d).sql
+else
+  BKFILENAME=DAYBREAKDBSTAT_`echo $DBNAME`_$(date +%y_%m_%d)_BK.tar.gz
+  SQLFILENAME=DAYBREAKDBSTAT_`echo $DBNAME`_$(date +%y_%m_%d).sql
+fi
+
+#CURYEAR=$(date +%y)
+#CURMON=$(date +%m)
+
+# 30 days
+PERIODSECS=2592000
+CURSECONDS=`date +%s`
+
+ls  > curls.txt
+while read line
+do
+YEAR=`echo $line | awk -F _ '{print $4}'`
+MON=`echo $line | awk -F _ '{print $5}'`
+DAY=`echo $line | awk -F _ '{print $6}'`
+expr $YEAR + 0 > /dev/null 2>&1
+if [ $? -eq 0  ]; then
+
+FILESECS=`date -d $YEAR-$MON-$DAY +%s`
+FILESECS=`expr $FILESECS + $PERIODSECS`
+
+#if [ $FILESECS -lt $CURSECONDS ]; then
+#rm -rf $line > /dev/null 2>&1
+#fi
+
+#if [ $YEAR -ne $CURYEAR ]; then
+#rm -rf $line > /dev/null 2>&1
+#fi
+#if [ $MON -ne $CURMON ]; then
+#rm -rf $line > /dev/null 2>&1
+#fi
+
+fi
+done < curls.txt
+rm -rf curls.txt
+
+if [ -f $BKFILENAME ] 
+then 
+rm -rf $BKFILENAME > /dev/null 2>&1
+fi
+
+if [ -f $SQLFILENAME ] 
+then 
+rm -rf $SQLFILENAME > /dev/null 2>&1
+fi
+
+#rm -rf *.sql > /dev/null 2>&1
+
+if [ $BKTYPE -eq 0  ]; then
+  if [ -z $DBPWD ]; then
+    mysqldump -u $DBUSER -h$DBHOST --skip-opt --extended-insert=false --add-drop-table --add-locks --create-options --triggers=false --disable-keys --quick --hex-blob $DBNAME account chargerecord creaturemix global globalmail ibpayuserecord npc npcmaprelation npcrelation rolesfirst rolessecond society societymem > $SQLFILENAME
+  else
+    mysqldump -u $DBUSER -p$DBPWD -h$DBHOST --skip-opt --extended-insert=false --add-drop-table --add-locks --create-options --triggers=false --disable-keys --quick --hex-blob $DBNAME account chargerecord creaturemix global globalmail ibpayuserecord npc npcmaprelation npcrelation rolesfirst rolessecond society societymem > $SQLFILENAME
+  fi
+elif [ $BKTYPE -eq 1  ]; then
+  if [ -z $DBPWD ]; then
+    mysqldump -u $DBUSER -h$DBHOST --skip-opt --extended-insert=false --add-drop-table --add-locks --create-options --triggers=false --disable-keys --quick --hex-blob $DBNAME > $SQLFILENAME
+  else
+    mysqldump -u $DBUSER -p$DBPWD -h$DBHOST --skip-opt --extended-insert=false --add-drop-table --add-locks --create-options --disable-keys --quick --hex-blob $DBNAME > $SQLFILENAME
+  fi
+else
+  if [ -z $DBPWD ]; then
+    mysqldump -u $DBUSER -h$DBHOST --skip-opt --extended-insert=false --add-drop-table --add-locks --create-options --triggers=false --disable-keys --quick --hex-blob $DBNAME > $SQLFILENAME
+  else
+    mysqldump -u $DBUSER -p$DBPWD -h$DBHOST --skip-opt --extended-insert=false --add-drop-table --add-locks --create-options --disable-keys --quick --hex-blob $DBNAME > $SQLFILENAME
+  fi
+fi
+
+tar -czvf $BKFILENAME $SQLFILENAME > /dev/null 2>&1 
+
+rm -rf $SQLFILENAME > /dev/null 2>&1
+
+cd $CURPWD

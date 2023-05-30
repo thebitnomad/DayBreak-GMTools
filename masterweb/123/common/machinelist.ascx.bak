@@ -1,0 +1,93 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="machinelist.ascx.cs" Inherits="common_machinelist" %>
+
+<script type="text/javascript">
+	var msgOSTypeLinux		= '<%= Resources.StringDef.OSTypeLinux %>';
+	var msgOSTypeWindows	= '<%= Resources.StringDef.OSTypeWindows %>';
+</script>
+
+<ext:XScript ID="XScript1" runat="Server">
+	<script type="text/javascript">
+		var machineListRenderOSType = function( value, metadata, record, rowIndex, colIndex, store ) {
+			switch( value )
+			{
+				case 0:
+					return msgOSTypeLinux;
+				case 1:
+					return msgOSTypeWindows;
+			}
+		};
+
+		var machineListGetSelMachine = function( ) {
+			var machineIds = '';
+			var selRecords	= #{GridPanelMachine}.getSelectionModel( ).getSelections( );
+			for( var nLoopCount = 0; nLoopCount < selRecords.length; ++nLoopCount ) {
+				machineIds += selRecords[nLoopCount].get( 'Id' );
+				if( nLoopCount != selRecords.length - 1 )
+					machineIds += ',';
+			}
+			
+			return machineIds;
+		};
+	</script>
+</ext:XScript>
+
+<ext:Store ID="StoreMachine" runat="server" RemotePaging="false" RemoteSort="false" AutoLoad="true" OnRefreshData="MachineRefresh" GroupField="Group">
+	<DirectEventConfig>
+		<EventMask ShowMask="true" Msg="<%$ Resources:StringDef, Loading %>" Target="CustomTarget" CustomTarget="#{GridPanelMachine}.body" />
+	</DirectEventConfig>
+	<Proxy>
+		<ext:PageProxy />
+	</Proxy>
+	<Reader>
+		<ext:JsonReader>
+			<Fields>
+				<ext:RecordField Name="Id" Mapping="Id" Type="Int" />
+				<ext:RecordField Name="Name" Mapping="Name" Type="String" />
+				<ext:RecordField Name="Comment" Mapping="Comment" Type="String" />
+				<ext:RecordField Name="IpAddress" Mapping="IpAddress" Type="String" />
+				<ext:RecordField Name="OSType" Mapping="OSType" Type="Int" />
+				<ext:RecordField Name="Group" Mapping="Group" Type="String" />
+			</Fields>
+		</ext:JsonReader>
+	</Reader>
+</ext:Store>
+
+<ext:BorderLayout runat="Server">
+	<Center>
+		<ext:GridPanel ID="GridPanelMachine" runat="Server" StoreID="StoreMachine">
+			<View>
+				<ext:GroupingView ID="GroupingView1" runat="server" MarkDirty="false" ShowGroupName="false" EnableNoGroups="true" HideGroupedColumn="true">
+					<CustomConfig>
+						<ext:ConfigItem Name="scrollToTop" Value="Ext.emptyFn" Mode="Raw" />
+					</CustomConfig>
+				</ext:GroupingView>
+			</View>
+			<ColumnModel>
+				<Columns>
+					<ext:Column Header="<%$ Resources:StringDef, Id %>" DataIndex="Id" Width="40">
+					</ext:Column>
+					<ext:Column Header="<%$ Resources:StringDef, Name %>" DataIndex="Name" Width="200" >
+					</ext:Column>
+					<ext:Column Header="<%$ Resources:StringDef, IpAddress %>" DataIndex="IpAddress" >
+					</ext:Column>
+					<ext:Column Header="<%$ Resources:StringDef, MacAddress %>" DataIndex="MacAddress" >
+					</ext:Column>
+					<ext:Column Header="<%$ Resources:StringDef, OSType %>" DataIndex="OSType" >
+						<Renderer Fn="machineListRenderOSType" />
+					</ext:Column>
+					<ext:Column Header="<%$ Resources:StringDef, BelongedMachineGroup %>" DataIndex="Group" >
+					</ext:Column>
+					<ext:Column Header="<%$ Resources:StringDef, Comment %>" DataIndex="Comment" Width="300" >
+					</ext:Column>
+				</Columns>
+			</ColumnModel>
+			<BottomBar>
+				<ext:PagingToolbar runat="Server" ID="PagingMachineList" PageSize="500"></ext:PagingToolbar>
+			</BottomBar>
+			<SelectionModel>
+				<ext:CheckboxSelectionModel ID="CheckboxSelectionModel1" runat="Server">
+				</ext:CheckboxSelectionModel>
+			</SelectionModel>
+		</ext:GridPanel>
+	</Center>
+</ext:BorderLayout>

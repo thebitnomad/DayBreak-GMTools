@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="8" virtualPath="/masterweb/global.asax" hash="4c7160d4" filehash="442809c2b203" flags="150000" assembly="App_global.asax" type="ASP.global_asax">
+    <filedeps>
+        <filedep name="/masterweb/global.asax" />
+    </filedeps>
+</preserve>

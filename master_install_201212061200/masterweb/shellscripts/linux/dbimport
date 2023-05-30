@@ -1,0 +1,21 @@
+#!/bin/bash
+#create by yaoyao
+
+DBNAME=C#P1
+DBUSER=C#P2
+DBPWD=C#P3
+BKPATH=C#P4
+SQLFILENAME=C#P5
+DBHOST=C#P6
+
+CURPWD=`pwd`
+mkdir -p $BKPATH
+cd $BKPATH
+
+if [ -z $DBPWD ]; then
+  mysql -u$DBUSER -h$DBHOST $DBNAME < $SQLFILENAME
+else
+  mysql -u$DBUSER -p$DBPWD -h$DBHOST $DBNAME < $SQLFILENAME
+fi
+
+cd $CURPWD

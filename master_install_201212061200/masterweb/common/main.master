@@ -1,0 +1,44 @@
+﻿<%@ master language="C#" autoeventwireup="true" inherits="common_main, App_Web_main.master.38131f0b" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<script type="text/javascript">
+		var msgPrompt = '<%= Resources.StringDef.Prompt %>';
+	</script>
+	<style type="text/css">
+	.x-selectable, .x-selectable * {
+		-moz-user-select:text!important;
+		-khtml-user-select:text!important;
+		-webkit-user-select:text!important;
+	}
+	</style>
+</head>
+<head runat="Server">
+	<title><%= Resources.StringDef.SystemName %> - <%= Resources.StringDef.SystemDesc %></title>
+	<script type="text/javascript" src="../common/common.js"></script>
+	<asp:ContentPlaceHolder ID="HeaderHolder" runat="server">    
+	</asp:ContentPlaceHolder>
+</head>
+
+<body>
+	<form id="form1" runat="server">
+		<ext:ResourceManager ID="ResourceManager1" runat="server" SourceFormatting="true" ScriptMode="Debug" ShowWarningOnAjaxFailure="false" >
+		<%--<ext:ResourceManager ID="ResourceManager1" runat="server">--%>
+			<Listeners>
+				<%--<AjaxRequestException Handler="
+					showErrMsg( result, response.responseText );
+				" />--%>
+			</Listeners>
+		</ext:ResourceManager>
+		<script type="text/javascript" src="../common/gridsel.js">
+		</script>
+		<asp:ContentPlaceHolder id="ContentHolder" runat="server">
+		</asp:ContentPlaceHolder>
+	</form>
+</body>
+<asp:ContentPlaceHolder id="TailHolder" runat="server">
+</asp:ContentPlaceHolder>
+
+</html>

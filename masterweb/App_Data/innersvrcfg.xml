@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfSInnerSvrCfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SInnerSvrCfg>
+    <Name>import000001</Name>
+    <UserName>dayb</UserName>
+    <Password>+c+tOm4LSkQ=</Password>
+    <Port>3306</Port>
+    <IpAddress>177.234.153.66</IpAddress>
+    <DBName>daybreak_104001</DBName>
+    <CharSet />
+  </SInnerSvrCfg>
+</ArrayOfSInnerSvrCfg>

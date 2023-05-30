@@ -1,0 +1,4 @@
+'pwd
+
+Set m_objWshShell = WScript.CreateObject( "WScript.Shell" )
+WScript.Echo m_objWshShell.CurrentDirectory
