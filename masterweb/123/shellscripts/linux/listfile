@@ -1,4 +1,0 @@
-#/bin/bash
-#list file
-
-ls -log --time-style=long-iso --all "C#P1"
