@@ -1,6 +1,0 @@
-#/bin/bash
-#killproc
-
-pid=C#P1
-
-kill $pid

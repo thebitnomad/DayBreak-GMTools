@@ -1,4 +1,0 @@
-#!/bin/bash
-#add by yaoyao
-
-ls -l sdetector --time-style=full-iso -c | awk ' { print $6" "$7 } '
